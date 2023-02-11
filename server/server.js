@@ -1,5 +1,5 @@
-const app = require('./server/app');
-const { connectMongo } = require('./server/db/connection');
+const app = require('./app');
+const { connectMongo } = require('./db/connection');
 
 const port = 3000;
 

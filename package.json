@@ -1,8 +1,18 @@
 {
   "name": "techstack-test-rent",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "homepage": "https://Aleksayshn.github.io/techstack-test-rent/",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint:js": "eslint src/**/*.{js,jsx}",
+    "lint:fix": "eslint --fix **/*.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon ./server.js",
+    "lint": "eslint **/*.js"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -13,14 +23,24 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "bcrypt": "^5.1.0",
+    "cors": "2.8.5",
+    "cross-env": "7.0.3",
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "mongoose": "^6.8.1",
+    "morgan": "1.10.0",
+    "uuid": "^9.0.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint:js": "eslint src/**/*.{js,jsx}"
+  "devDependencies": {
+    "eslint": "7.19.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "5.2.0",
+    "nodemon": "^2.0.20"
   },
   "eslintConfig": {
     "extends": [
