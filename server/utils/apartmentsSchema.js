@@ -1,14 +1,14 @@
 const Joi = require('joi');
 
 /**
- * Joi validation schema for new contact addition
+ * Joi validation schema for new apartment addition
  *
  * @param name - with type string, and aplhanum with validation; required
  * @param email - type string with email validation; required
  * @param phone - type string with phone RegEx validation; required
  * @param favorite - type boolean with default false value;
  */
-const contactAdditionSchema = Joi.object({
+const apartmentAdditionSchema = Joi.object({
   name: Joi.string().alphanum().required(),
   email: Joi.string().email().required(),
   phone: Joi.string()
@@ -18,7 +18,7 @@ const contactAdditionSchema = Joi.object({
 });
 
 /**
- * Joi validation schema for contact update
+ * Joi validation schema for apartment update
  *
  * @param name with type string, and aplhanum with validation;
  * @param email - type string with email validation;
@@ -26,7 +26,7 @@ const contactAdditionSchema = Joi.object({
  * @param favorite - type boolean;
  * All variants are optional, but at least one is required.
  */
-const contactUpdateSchema = Joi.object({
+const apartmentUpdateSchema = Joi.object({
   name: Joi.string().alphanum(),
   email: Joi.string().email(),
   phone: Joi.string().regex(
@@ -36,16 +36,16 @@ const contactUpdateSchema = Joi.object({
 }).xor('name', 'email', 'phone', 'favorite');
 
 /**
- * Joi validation schema for contact status update
+ * Joi validation schema for apartment status update
  *
  * @param favorite - type boolean;
  */
-const contactStatusUpdateSchema = Joi.object({
+const apartmentStatusUpdateSchema = Joi.object({
   favorite: Joi.boolean().required(),
 });
 
 module.exports = {
-  contactAdditionSchema,
-  contactUpdateSchema,
-  contactStatusUpdateSchema,
+  apartmentAdditionSchema,
+  apartmentUpdateSchema,
+  apartmentStatusUpdateSchema,
 };

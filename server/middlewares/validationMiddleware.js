@@ -3,10 +3,10 @@ const { isValidObjectId } = require('mongoose');
 const { ValidationError } = require('../helpers/errorHelpers');
 
 const {
-  contactAdditionSchema,
-  contactUpdateSchema,
-  contactStatusUpdateSchema,
-} = require('../utils/contactsSchema');
+  apartmentAdditionSchema,
+  apartmentUpdateSchema,
+  apartmentStatusUpdateSchema,
+} = require('../utils/apartmentsSchema');
 
 module.exports = {
   /**
@@ -18,10 +18,10 @@ module.exports = {
    * @param {*} _
    * @param {*} next
    */
-  addContactValidation: (req, _, next) => {
+  addapartmentValidation: (req, _, next) => {
     const body = req.body;
 
-    const { error: validationError } = contactAdditionSchema.validate(body);
+    const { error: validationError } = apartmentAdditionSchema.validate(body);
 
     if (validationError) {
       next(new ValidationError(validationError.details[0].message));
@@ -38,11 +38,11 @@ module.exports = {
    * @param {*} _
    * @param {*} next
    */
-  updateContactValidation: (req, _, next) => {
+  updateapartmentValidation: (req, _, next) => {
     const body = req.body;
 
     // body validation
-    const { error: validationError } = contactUpdateSchema.validate(body);
+    const { error: validationError } = apartmentUpdateSchema.validate(body);
 
     if (validationError) {
       next(new ValidationError(validationError.details[0].message));
@@ -59,11 +59,11 @@ module.exports = {
    * @param {*} _
    * @param {*} next
    */
-  updateContactStatusValidation: (req, _, next) => {
+  updateapartmentStatusValidation: (req, _, next) => {
     const body = req.body;
 
     // body validation
-    const { error: validationError } = contactStatusUpdateSchema.validate(body);
+    const { error: validationError } = apartmentStatusUpdateSchema.validate(body);
 
     if (validationError) {
       next(new ValidationError(validationError.details[0].message));
@@ -81,12 +81,12 @@ module.exports = {
    * @param {*} next
    */
   idValidation: (req, _, next) => {
-    const contactId = req.params.contactId;
+    const id = req.params.id;
 
-    const isValueContactId = isValidObjectId(contactId);
+    const isValueid = isValidObjectId(id);
 
-    if (!isValueContactId) {
-      next(new ValidationError('Incorrect contact id'));
+    if (!isValueid) {
+      next(new ValidationError('Incorrect apartment id'));
     }
 
     next();
