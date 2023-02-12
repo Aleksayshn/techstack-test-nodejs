@@ -4,7 +4,6 @@ const {
   removeApartment,
   addApartment,
   updateApartment,
-  updateStatusApartment,
 } = require('../services/apartmentsService');
 
 const { NotFoundError } = require('../helpers/errorHelpers');
@@ -16,9 +15,9 @@ const getApartmentsController = async (_, res) => {
 };
 
 const getApartmentByIdController = async (req, res) => {
-  const apartmentId = req.params.apartmentId;
+  const id = req.params.id;
 
-  const data = await getApartmentById(apartmentId);
+  const data = await getApartmentById(id);
 
   if (!data) {
     throw new NotFoundError('apartment has not been found.');
@@ -36,9 +35,9 @@ const addApartmentController = async (req, res) => {
 };
 
 const removeApartmentByIdController = async (req, res) => {
-  const apartmentId = req.params.apartmentId;
+  const id = req.params.id;
 
-  const removedapartment = await removeApartment(apartmentId);
+  const removedapartment = await removeApartment(id);
 
   if (!removedapartment) {
     throw new NotFoundError('apartment has not been found.');
@@ -48,23 +47,10 @@ const removeApartmentByIdController = async (req, res) => {
 };
 
 const updateApartmentByIdController = async (req, res) => {
-  const apartmentId = req.params.apartmentId;
+  const id = req.params.id;
   const body = req.body;
 
-  const updatedapartment = await updateApartment(apartmentId, body);
-
-  if (!updatedapartment) {
-    throw new NotFoundError('apartment has not been found.');
-  }
-
-  res.json(Object.assign(updatedapartment, body));
-};
-
-const updateApartmentstatusByIdController = async (req, res) => {
-  const apartmentId = req.params.apartmentId;
-  const body = req.body;
-
-  const updatedapartment = await updateStatusApartment(apartmentId, body);
+  const updatedapartment = await updateApartment(id, body);
 
   if (!updatedapartment) {
     throw new NotFoundError('apartment has not been found.');
@@ -79,5 +65,4 @@ module.exports = {
   addApartmentController,
   removeApartmentByIdController,
   updateApartmentByIdController,
-  updateApartmentstatusByIdController,
 };

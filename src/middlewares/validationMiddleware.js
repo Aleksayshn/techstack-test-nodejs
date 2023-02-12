@@ -5,7 +5,6 @@ const { ValidationError } = require('../helpers/errorHelpers');
 const {
   apartmentAdditionSchema,
   apartmentUpdateSchema,
-  apartmentStatusUpdateSchema,
 } = require('../utils/apartmentsSchema');
 
 module.exports = {
@@ -43,27 +42,6 @@ module.exports = {
 
     // body validation
     const { error: validationError } = apartmentUpdateSchema.validate(body);
-
-    if (validationError) {
-      next(new ValidationError(validationError.details[0].message));
-    }
-
-    next();
-  },
-  /**
-   * Joi validation middleware.
-   * If there is a validation error, an error will be thrown.
-   * Otherwise next() will be invoked.
-   *
-   * @param {*} req
-   * @param {*} _
-   * @param {*} next
-   */
-  updateapartmentStatusValidation: (req, _, next) => {
-    const body = req.body;
-
-    // body validation
-    const { error: validationError } = apartmentStatusUpdateSchema.validate(body);
 
     if (validationError) {
       next(new ValidationError(validationError.details[0].message));

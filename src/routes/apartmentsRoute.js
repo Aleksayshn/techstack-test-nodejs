@@ -22,7 +22,7 @@ const router = express.Router();
 router.get('/', asyncWrapper(getApartmentsController));
 
 // GET: by apartment id
-router.get('/:apartmentId', idValidation, asyncWrapper(getApartmentByIdController));
+router.get('/:id', idValidation, asyncWrapper(getApartmentByIdController));
 
 /**
  * POST: Create and save a new apartment in the DB.
@@ -37,8 +37,7 @@ router.post('/', addapartmentValidation, asyncWrapper(addApartmentController));
  * @returns removed apartment
  */
 router.delete(
-  '/:apartmentId',
-  idValidation,
+  '/:id',
   asyncWrapper(removeApartmentByIdController)
 );
 
@@ -48,21 +47,11 @@ router.delete(
  * @returns updated apartment
  */
 router.put(
-  '/:apartmentId',
+  '/:id',
   idValidation,
   updateapartmentValidation,
   asyncWrapper(updateApartmentByIdController)
 );
 
-/**
- * PATCH: Update favorite field for a specific apartment
- *
- * @returns updated apartment
- */
-router.patch(
-  '/:apartmentId/favorite',
-  idValidation,
-  updateapartmentValidation,
-);
 
 module.exports = router;
