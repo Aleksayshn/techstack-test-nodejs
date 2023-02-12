@@ -1,24 +1,35 @@
-const app = require('./app');
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+const app = require('./src/app');
+const { connectMongo } = require('./src/db/connection');
+require('dotenv').config();
 
-dotenv.config();
-mongoose.set('strictQuery', false);
+const PORT = process.env.PORT || 8080;
 
-const { HOST_URI, PORT } = process.env;
-
-async function main() {
+const startServer = async () => {
   try {
-    await mongoose.connect(HOST_URI);
-    console.log("Database connection successful");
+    await connectMongo();
 
-    app.listen(PORT || 3000, () => {
-      console.log(`Server running. Use our API on https://marketplace-apartment.netlify.app:${PORT || 3000}`)
-    })
+    app.listen(PORT, error => {
+      if (error) {
+        console.error(
+          '\x1B[31m',
+          'An error has occurred during the server launch',
+          error
+        );
+      }
 
-  } catch (error) {
-    console.error("Error while connecting to mongodb", error.message);
+      console.log(
+        '\x1b[36m%s\x1b[0m',
+        `Server has been launched successfully on port: http://localhost:${PORT}.`
+      );
+    });
+  } catch (err) {
+    console.error(
+      '\x1B[31m',
+      `The following error has occurred during the server launch: ${err.message}`
+    );
+
     process.exit(1);
   }
-}
-main()
+};
+
+startServer();
