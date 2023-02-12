@@ -6,9 +6,11 @@ const mongoose = require('mongoose');
  * @returns connection to the DB
  */
 const connectMongo = async () => {
+  const HOST_URI = process.env.HOST_URI;
+
   mongoose.set('strictQuery', true);
   return await mongoose.connect(
-    'mongodb+srv://renter:8080@cluster0.ftuvqys.mongodb.net/?retryWrites=true&w=majority'
+    HOST_URI
   );
 };
 
