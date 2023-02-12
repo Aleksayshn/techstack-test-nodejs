@@ -13,11 +13,9 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/apartments', apartmentsRouter);
+app.use('/.netlify/functions/server', apartmentsRouter);  // path must route to lambda
 
-app.use((_, res) => {
-  res.status(404).json({ message: 'Not found' });
-});
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 app.use(errorHandler);
 
