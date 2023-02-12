@@ -15,9 +15,7 @@ app.use(express.json());
 
 app.use('/api/apartments', apartmentsRouter);
 
-app.use((_, res) => {
-  res.status(404).json({ message: 'Not found' });
-});
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 app.use(errorHandler);
 
