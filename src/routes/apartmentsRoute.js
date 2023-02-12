@@ -19,7 +19,7 @@ const {
 const router = express.Router();
 
 // GET: all apartments in the DB
-router.get('/api', asyncWrapper(getApartmentsController));
+router.get('/', asyncWrapper(getApartmentsController));
 
 // GET: by apartment id
 router.get('/:id', idValidation, asyncWrapper(getApartmentByIdController));
