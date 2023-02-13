@@ -3,6 +3,8 @@
 * Install packages with npm install
 * Run with npm start
 * Documentation: https://aleksayshn.github.io/techstack-test-nodejs/
+* Port: 8080
+
 ###  Backend Part
 Create a web API. App user should be able to:
 * Get list of apartments; sorting (price) and filtering (rooms);
@@ -11,7 +13,7 @@ Create a web API. App user should be able to:
 * Edit apartment details.
   
 ## TASK
-###  FrontEnd Part
+###  FrontEnd Part: Page: https://aleksayshn.github.io/techstack-test-rent/
 Create a single page app for apartment marketplace. App user should be able to:
 * View list of available apartments;
 * Sort by price and filter by rooms;
