@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
 const path = require('path');
+const serverless = require('serverless-http');
 
 const { errorHandler } = require('./helpers/routeHelpers');
 const apartmentsRouter = require('./routes/apartmentsRoute');
@@ -23,3 +24,4 @@ app.use('/', (req, res) => {
 app.use(errorHandler);
 
 module.exports = app;
+module.exports.handler = serverless(app);
