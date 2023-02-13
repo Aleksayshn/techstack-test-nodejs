@@ -13,7 +13,9 @@ Create a web API. App user should be able to:
 * Edit apartment details.
   
 ## TASK
-###  FrontEnd Part: Page: https://aleksayshn.github.io/techstack-test-rent/
+###  FrontEnd Part: 
+* Page: https://aleksayshn.github.io/techstack-test-rent/
+* Link: https://github.com/Aleksayshn/techstack-test-rent
 Create a single page app for apartment marketplace. App user should be able to:
 * View list of available apartments;
 * Sort by price and filter by rooms;
