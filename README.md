@@ -2,7 +2,7 @@
 
 * Install packages with npm install
 * Run with npm start
-* 
+* Documentation: https://aleksayshn.github.io/techstack-test-nodejs/
 ###  Backend Part
 Create a web API. App user should be able to:
 * Get list of apartments; sorting (price) and filtering (rooms);
