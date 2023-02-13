@@ -14,10 +14,11 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
-app.use('/.netlify/functions/server', apartmentsRouter);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+app.use('/api/apartments', apartmentsRouter);
 
-
+app.use('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../index.html'));
+});
 
 app.use(errorHandler);
 

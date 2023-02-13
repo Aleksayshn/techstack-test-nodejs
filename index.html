@@ -1,2 +1,69 @@
 <!DOCTYPE html>
-<object type="text/html" data="/.netlify/functions/server" style="width:100%;height:100%;">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apartments API</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#endpoints">Endpoints</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to the Apartments API documentation page! This page provides information about the available
+                endpoints for the API.</p>
+        </section>
+        <section id="endpoints">
+            <h2>Endpoints</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Endpoint</th>
+                        <th>HTTP Method</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>/</td>
+                        <td>GET</td>
+                        <td>Retrieves a list of all apartments in the database.</td>
+                    </tr>
+                    <tr>
+                        <td>/:id</td>
+                        <td>GET</td>
+                        <td>Retrieves information for a specific apartment with the given ID.</td>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>POST</td>
+                        <td>Creates a new apartment in the database.</td>
+                    </tr>
+                    <tr>
+                        <td>/:id</td>
+                        <td>DELETE</td>
+                        <td>Removes an apartment from the database with the given ID.</td>
+                    </tr>
+                    <tr>
+                        <td>/:id</td>
+                        <td>PUT</td>
+                        <td>Updates an existing apartment in the database with the given ID.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright Apartments API 2023</p>
+    </footer>
+</body>
+
+</html>
